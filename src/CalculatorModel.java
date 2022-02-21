@@ -1,3 +1,5 @@
+import com.sun.istack.internal.NotNull;
+
 import java.util.Observable;
 import java.util.function.BiFunction;
 
@@ -8,7 +10,7 @@ public class CalculatorModel {
     private char operationChar;
 
     private final NumberInput input;
-    public CalculatorModel(NumberInput input) {
+    public CalculatorModel(@NotNull NumberInput input) {
         this.input = input;
         oldValue = 0d;
     }
@@ -18,7 +20,7 @@ public class CalculatorModel {
      * The second value is entered by the user after.
      * @param operation
      */
-    public void applyOperation(BiFunction<Double, Double, Double> operation, char operationChar) {
+    public void applyOperation(@NotNull BiFunction<Double, Double, Double> operation, char operationChar) {
         oldValue = input.getNumber();
         this.operation = operation;
         this.operationChar = operationChar;

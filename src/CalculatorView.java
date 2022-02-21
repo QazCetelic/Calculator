@@ -1,3 +1,4 @@
+import com.sun.istack.internal.NotNull;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -62,13 +63,14 @@ public class CalculatorView extends BorderPane {
         });
 
         grid.add(button, column, row);
-        button.onActionProperty().set(action);
+
+        if (action != null) button.setOnAction(action);
     }
 
     /**
      * @param node the button to scale
      */
-    private void scale(Labeled node, double height, double width) {
+    private void scale(@NotNull Labeled node, double height, double width) {
         double buttonWidth = width / 4;
         double buttonHeight = height / 4;
         double fontSize = Math.min(height / 12, width / 12);

@@ -1,21 +1,14 @@
+import com.sun.istack.internal.NotNull;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
-import java.io.InputStream;
 
 public class Calculator extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(@NotNull Stage primaryStage) {
         CalculatorView calcView = new CalculatorView();
 
         // Calculate calculator view size
@@ -26,6 +19,5 @@ public class Calculator extends Application {
         Scene scene = new Scene(calcView, scaled * 3, scaled * 4);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.setResizable(false);
     }
 }
